@@ -1,0 +1,83 @@
+<!DOCTYPE html>  
+<html lang="ko">  
+<head>  
+	<meta charset="utf-8" />  
+	<title>pisces project</title> 
+	<style>
+		body {
+			font-family:'Trebuchet MS';
+		}
+		div .loginbox {
+			width:300px;
+			background-color:#eee;
+			padding:15px;
+			border:1px solid #aaa;
+			border-radius:10px;	
+			-moz-border-radius:10px;
+			-webkit-border-radius:10px;
+		}	
+		
+		.loginbox .logo {
+			font-size:1.2em;
+			width:100px;
+			padding-left:8px;
+			border-left:9px solid #333;
+			color:#555;
+			margin-bottom:15px;
+			font-family:helvetica;
+		}
+		
+		.loginbox .loginbutton {
+			cursor:pointer;
+			padding:4px;
+			color:#fff;
+			background-color:#26c;
+			text-decoration:underline;
+		}
+	</style>
+	<script>
+		var login = {
+			go : function() {
+				document.loginform.submit();				
+			}
+		};
+	</script>
+</head>
+<body>
+
+<form action="/start/" method="POST" name="loginform">
+<div style="margin-top:200px;width:400px;margin-left:auto;margin-right:auto;">
+<div class="loginbox">
+
+	<div class="logo">
+		Pisces Project
+	</div>
+	
+	<div id="loginline" style="margin-bottom:3px;">
+		<div style="width:100px;float:left;">login</div> 
+		<div style="width:200px;float:left;">
+			<input type="text" style="width:190px;font-size:1.2em;" name="username" id="username" />
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+	
+	<div id="passline">
+		<div style="width:100px;float:left;">password</div> 
+		<div style="width:200px;float:left;">
+			<input type="password" style="width:190px;font-size:1.2em;" name="password" id="password" />
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+	
+	<div style="text-align:right;margin-top:10px;margin-right:10px;">
+		<span class="loginbutton" onclick="login.go()">login</span>
+	</div>
+	<a href="/static/reg.pdf">reg form</a>
+</div>
+</div>
+</form>
+
+
+</body>
+</html>
+
