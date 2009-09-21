@@ -3,7 +3,12 @@ from django.contrib.auth import authenticate, login
 from django.template import Context
 from django.template.loader import get_template
 
+
 def loginuser(request):
+    """
+    We might not need this, since django already provides a view for login at
+    django.contrib.auth.views.login
+    """
     if 'username' not in request.POST or 'password' not in request.POST:
         t = get_template('login.html')
         html = t.render(Context({}))
