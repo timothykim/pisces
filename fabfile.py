@@ -5,9 +5,9 @@ def test():
     This sets up the test server environment.
     """
     env.hosts = ["pisces.kgfamily.com"]
-    env.dir = "/var/www/kgfamily.com/django/pisces"
-    env.user = "highwind"
-    env.settings = "settings_test.py"
+    env.dir = "/var/www/kgfamily.com/pisces/django"
+    env.user = "pisces"
+    env.settings = "settings_test"
 
 def clone():
     """
@@ -27,10 +27,24 @@ def syncdb():
     Runs manage.py syncdb on the server.
     """
     with cd(env.dir):
-        run("python manage.py --settings=%s syncdb" % env.settings)
+        run("python manage.py syncdb --settings=%s" % env.settings)
 
-def host_type():
+def runtest():
     """
-    Prints host type (via ``uname -s``) for a remote host.
+    Run unit test on the remote machine
     """
-    run("uname -a")
+    print("Not ready yet... sorry!")
+
+def restart():
+    """
+    Restart the remote test Apache server. You can't used this for production server.
+    """
+    sudo("apache2ctl graceful")
+
+
+def ping():
+    """
+    Makes a connection to server and prints host type (via ``uname -monisr``).
+    """
+    print("Testing connection...")
+    run("uname -monisr")
