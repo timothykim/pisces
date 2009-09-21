@@ -5,7 +5,7 @@ def test():
     This sets up the test server environment.
     """
     env.hosts = ["pisces.kgfamily.com"]
-    env.dir = "/var/www/kgfamily.com/pisces/django"
+    env.dir = "/var/www/kgfamily.com/django/pisces"
     env.user = "pisces"
     env.settings = "settings_test"
 
