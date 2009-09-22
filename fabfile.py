@@ -27,7 +27,7 @@ def syncdb():
     Runs manage.py syncdb on the server.
     """
     with cd(env.dir):
-        run("python manage.py syncdb --settings=%s" % env.settings)
+        run("python manage.py syncdb --noinput --settings=%s" % env.settings)
 
 def runtest():
     """
