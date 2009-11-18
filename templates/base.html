@@ -1,0 +1,31 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Pisces Project - {% block title %}{% endblock %}</title>
+
+        <link rel="stylesheet" href="/static/styles/base.css" type="text/css">
+        {% block css %}
+        {% endblock %}
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+        {% block js %}
+        {% endblock %}
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <h1>Pisces</h1>
+            </div>
+
+            <div id="body">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            <div id="footer">
+            </div>
+        </div>
+    </body>
+</html>

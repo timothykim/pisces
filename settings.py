@@ -33,6 +33,7 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = True
 
+
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = ''
@@ -54,20 +55,24 @@ SECRET_KEY = 'm!6(mqnvuy(w-()*bpz*7si+)%8-v-d0y78g$hq*u(an2o2%ab'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
-#     'django.template.loaders.eggs.load_template_source',
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'pisces.urls'
 
+
+import os.path
 TEMPLATE_DIRS = (
-    'templates',
+    os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
 )
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -75,5 +80,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'south',
-    'pisces.accounts'
+    'debug_toolbar',
+    'pisces.accounts',
+    'pisces.brochure',
 )
+
+INTERNAL_IPS = (
+    '127.0.0.1',
+)
+

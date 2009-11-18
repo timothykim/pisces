@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.template import Context
 from django.template.loader import get_template
+from django.shortcuts import render_to_response
 
 
 def loginuser(request):
@@ -25,4 +26,9 @@ def loginuser(request):
         return HttpResponse("correct!")
     else:
         return HttpResponse("incorrect!")
+
+
+def test(request):
+    d = {"foo":"bar"}
+    return render_to_response("test.html", d)
 
